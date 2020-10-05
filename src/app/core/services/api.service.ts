@@ -9,11 +9,11 @@ import { share, catchError } from 'rxjs/operators';
 })
 export class ApiService {
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public get(path: string, params?: any): Observable<any> {
+  public getCurrency(path: string, params?: any): Observable<any> {
     return this.http
-      .get<any>(`${environment}${path}`, { params })
+      .get<any>(`${environment.currencyApi}/${path}`, { params })
       .pipe(
         share(),
         catchError((error: any) => {
