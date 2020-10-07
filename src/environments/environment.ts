@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  currencyApi: 'https://api.exchangeratesapi.io',
-  testApi: 'currencylayer.com'
+  currencyApi: 'http://api.currencylayer.com',
+  accessKey: '3545984cdb05f66bda7ba64a2689258b'
 };
 
 /*
