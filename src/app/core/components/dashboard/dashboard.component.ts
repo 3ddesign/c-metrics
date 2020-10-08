@@ -8,11 +8,13 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  currentUAHCurrency: number;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getCurrency('&currencies=UAH&format=1').pipe(take(1)).subscribe(currency => {
+    this.apiService.getCurrency('&currencies=UAH&source=USD&format=1').pipe(take(1)).subscribe(currency => {
+      this.currentUAHCurrency = currency.quotes.USDUAH;
       console.log(currency);
     });
   }
