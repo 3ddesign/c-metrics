@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   currencyApi: 'http://api.currencylayer.com',
+  privatCurrencyApi: 'https://api.privatbank.ua',
   accessKey: '3545984cdb05f66bda7ba64a2689258b'
 };
 

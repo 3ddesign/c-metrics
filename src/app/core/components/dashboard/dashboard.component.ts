@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class DashboardComponent implements OnInit {
   currentUAHCurrency: number;
+  currentPrivatUAHCurrency: number;
 
   constructor(private apiService: ApiService) { }
 
@@ -16,6 +17,11 @@ export class DashboardComponent implements OnInit {
     this.apiService.getCurrency('&currencies=UAH&source=USD&format=1').pipe(take(1)).subscribe(currency => {
       this.currentUAHCurrency = currency.quotes.USDUAH;
       console.log(currency);
+    });
+
+    this.apiService.getPrivatCurrency().pipe(take(1)).subscribe(privatCurrency => {
+      console.log(privatCurrency);
+
     });
   }
 

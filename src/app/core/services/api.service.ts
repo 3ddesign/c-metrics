@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { share, catchError } from 'rxjs/operators';
@@ -14,6 +14,17 @@ export class ApiService {
   public getCurrency(path: string, params?: any): Observable<any> {
     return this.http
       .get<any>(`${environment.currencyApi}/live?access_key=${environment.accessKey}${path}`, { params })
+      .pipe(
+        share(),
+        catchError((error: any) => {
+          return this.handleError(error);
+        })
+      );
+  }
+
+  public getPrivatCurrency(): Observable<any> {
+    return this.http
+      .get<any>(`${environment.currencyApi}/exchange_rates?json&date=01.12.2014`)
       .pipe(
         share(),
         catchError((error: any) => {
