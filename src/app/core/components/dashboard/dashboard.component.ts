@@ -14,14 +14,9 @@ export class DashboardComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getCurrency('&currencies=UAH&source=USD&format=1').pipe(take(1)).subscribe(currency => {
-      this.currentUAHCurrency = currency.quotes.USDUAH;
+    this.apiService.getCurrency('latest?base=USD').pipe(take(1)).subscribe(currency => {
+      this.currentUAHCurrency = currency.rates.PLN;
       console.log(currency);
-    });
-
-    this.apiService.getPrivatCurrency().pipe(take(1)).subscribe(privatCurrency => {
-      console.log(privatCurrency);
-
     });
   }
 
