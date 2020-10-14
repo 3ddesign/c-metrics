@@ -13,7 +13,7 @@ export class ApiService {
 
   public getCurrency(path: string, params?: any): Observable<any> {
     return this.http
-      .get<any>(`${environment.currencyApi}/${path}`, { params })
+      .get<any>(`${environment.currencyApi}${path}&apiKey=${environment.accessKey}`, { params })
       .pipe(
         share(),
         catchError((error: any) => {

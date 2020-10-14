@@ -9,13 +9,12 @@ import { ApiService } from '../../services/api.service';
 })
 export class DashboardComponent implements OnInit {
   currentUAHCurrency: number;
-  currentPrivatUAHCurrency: number;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getCurrency('latest?base=USD').pipe(take(1)).subscribe(currency => {
-      this.currentUAHCurrency = currency.rates.PLN;
+    this.apiService.getCurrency('/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra').pipe(take(1)).subscribe(currency => {
+      this.currentUAHCurrency = currency.USD_UAH;
       console.log(currency);
     });
   }
