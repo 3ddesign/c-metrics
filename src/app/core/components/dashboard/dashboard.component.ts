@@ -8,15 +8,18 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  currentUAHCurrency: number;
+  public currentUAHCurrency: number;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getCurrency('/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra').pipe(take(1)).subscribe(currency => {
-      this.currentUAHCurrency = currency.USD_UAH;
-      console.log(currency);
-    });
+    this.getCurrencySummary();
   }
 
+  private getCurrencySummary(): void {
+    this.apiService.getCurrency('/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra').pipe(take(1))
+    .subscribe((currency: {USD_UAH: number}) => {
+      this.currentUAHCurrency = currency.USD_UAH;
+    });
+  }
 }

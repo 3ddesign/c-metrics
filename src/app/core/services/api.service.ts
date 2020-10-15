@@ -33,7 +33,7 @@ export class ApiService {
       );
   }
 
-  private handleError(error: any) {
+  private handleError(error: any): Observable<any> {
     return of(error);
   }
 }
