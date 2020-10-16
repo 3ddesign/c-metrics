@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class DashboardComponent implements OnInit {
   public currentUAHCurrency: number;
+  public prevCurrency: number;
 
   constructor(private apiService: ApiService) { }
 
@@ -20,6 +21,11 @@ export class DashboardComponent implements OnInit {
     this.apiService.getCurrency('/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra').pipe(take(1))
     .subscribe((currency: {USD_UAH: number}) => {
       this.currentUAHCurrency = currency.USD_UAH;
+    });
+
+    this.apiService.getCurrency('/api/v7/convert?q=USD_UAH,UAH_USD&date=2020-10-15&compact=ultra').pipe(take(1))
+    .subscribe((currency: {USD_UAH: number}) => {
+      this.prevCurrency = currency.USD_UAH;
     });
   }
 }
