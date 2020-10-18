@@ -3,8 +3,8 @@
     <span>Currency metrics</span>
   </mat-toolbar>
 </p>
-  
-<mat-card>
-    <h2>{{ currentUAHCurrency }}</h2>
-</mat-card>
 
+<div class="content-wrapper">
+  <app-currency-card [currencyTitle]="'USD/UAH'" [currentUAHCurrency]="currentUAHCurrency"></app-currency-card>
+  <app-currency-card [currencyTitle]="'UAH/USD'" [currentUAHCurrency]="currentUAHCurrency"></app-currency-card>
+</div>

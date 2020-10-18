@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { take } from 'rxjs/internal/operators/take';
 import { ApiService } from '../../services/api.service';
 

@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     MatCardModule,
     CommonModule
-  ]
+  ],
+  exports: [CurrencyCardComponent]
 })
 export class SharedModule { }
