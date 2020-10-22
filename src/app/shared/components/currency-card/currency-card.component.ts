@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CurrencyCardComponent implements OnInit {
   @Input() public currentUAHCurrency = 0;
   @Input() public currencyTitle = '';
-  @Input() public currencyDate =  new Date();
+  @Input() public currencyDate = new Date();
 
   constructor() { }
 
