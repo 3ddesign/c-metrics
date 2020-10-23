@@ -8,8 +8,8 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  public currentUAHCurrency: number;
-  public prevCurrency: number;
+  public currentUAHCurrency!: number;
+  public prevCurrency!: number;
 
   constructor(private apiService: ApiService) { }
 

@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "strict": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -16,5 +17,11 @@
       "es2018",
       "dom"
     ]
-  }
+  },
+"angularCompilerOptions": {
+    "noImplicitAny": true,
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+}
 }
