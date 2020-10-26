@@ -5,7 +5,6 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "strict": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -19,9 +18,12 @@
     ]
   },
 "angularCompilerOptions": {
-    "noImplicitAny": true,
-    "strictTemplates": true,
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+  "noImplicitAny": true,
+  "noImplicitThis": true,
+  "strictNullChecks": true,
+  "strictPropertyInitialization": true,
+  "strictBindCallApply": true,
+  "strictFunctionTypes": true,
+  // "strict": true,
 }
 }
