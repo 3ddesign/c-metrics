@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { share, catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   public getCurrency(path: string, params?: any): Observable<any> {
     return this.http
@@ -34,6 +34,9 @@ export class ApiService {
   }
 
   private handleError(error: any): Observable<any> {
+    this.snackBar.open('Http Error', error?.statusText, {
+      duration: 4000,
+    });
     return of(error);
   }
 }
