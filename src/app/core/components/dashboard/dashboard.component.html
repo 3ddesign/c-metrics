@@ -3,9 +3,6 @@
 </mat-toolbar>
 
 <div class="content-wrapper">
-  <app-currency-card [currencyTitle]="'USD/UAH'" [currentUAHCurrency]="currentUSDCurrency"></app-currency-card>
-  <app-currency-card [currencyTitle]="'UAH/USD'" [currentUAHCurrency]="currentUAHCurrency"></app-currency-card>
+  <app-currency-card [currencyTitle]="'USD/UAH'" [currentCurrency]="currentUSDCurrency" [prevCurrency]="prevUAHCurrency"></app-currency-card>
+  <app-currency-card [currencyTitle]="'UAH/USD'" [currentCurrency]="currentUAHCurrency" [prevCurrency]="prevUSDCurrency"></app-currency-card>
 </div>
-
-<mat-toolbar class="footer">
-</mat-toolbar>

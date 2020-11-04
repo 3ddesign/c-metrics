@@ -6,7 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./currency-card.component.scss']
 })
 export class CurrencyCardComponent implements OnInit {
-  @Input() public currentUAHCurrency = 0;
+  @Input() public currentCurrency = 0;
+  @Input() public prevCurrency = 0;
   @Input() public currencyTitle = '';
   @Input() public currencyDate = new Date();
 
