@@ -2,7 +2,7 @@
     <span>Currency metrics</span>
 </mat-toolbar>
 
-<div class="content-wrapper">
-  <app-currency-card [currencyTitle]="'USD/UAH'" [currentCurrency]="currentUSDCurrency" [prevCurrency]="prevUAHCurrency"></app-currency-card>
-  <app-currency-card [currencyTitle]="'UAH/USD'" [currentCurrency]="currentUAHCurrency" [prevCurrency]="prevUSDCurrency"></app-currency-card>
+<div class="content-wrapper" *ngIf="currentUSDCurrency && prevUSDCurrency">
+  <app-currency-card [currencyTitle]="'USD/UAH'" [currentCurrency]="currentUSDCurrency" [prevCurrency]="prevUSDCurrency"></app-currency-card>
+  <app-currency-card [currencyTitle]="'UAH/USD'" [currentCurrency]="currentUAHCurrency" [prevCurrency]="prevUAHCurrency"></app-currency-card>
 </div>

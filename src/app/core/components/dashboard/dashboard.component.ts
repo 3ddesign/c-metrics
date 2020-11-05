@@ -15,8 +15,8 @@ export class DashboardComponent implements OnInit {
 
   public prevCurrency!: number;
 
-  private currentDate = `${new Date().getFullYear()}-${'0' + new Date().getDay().toString().slice(-2)}-${new Date().getMonth()}`;
-  private prevDate = `${new Date().getFullYear()}-${'0' + (new Date().getDay() - 1).toString().slice(-2)}-${new Date().getMonth()}`;
+  private currentDate = `${new Date().getFullYear()}-${'0' + new Date().getDate().toString().slice(-2)}-${new Date().getMonth()}`;
+  private prevDate = `${new Date().getFullYear()}-${'0' + (new Date().getDate() - 1).toString().slice(-2)}-${new Date().getMonth()}`;
 
   constructor(private apiService: ApiService) { }
 
