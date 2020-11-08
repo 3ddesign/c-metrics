@@ -10,3 +10,17 @@ h2 {
 .trend-down {
     color: red;
 }
+
+.icon-trend-up {
+    
+}
+
+.trend-direction {
+    background-image: url('../../../../assets/icons/arrow.svg');
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    top: 30%;
+    right: 10%;
+    position: absolute;
+}

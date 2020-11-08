@@ -4,5 +4,6 @@
         <mat-card-subtitle>{{ currencyDate | date }}</mat-card-subtitle>
       </mat-card-header>
     <h2 [class.trend-down]="isTrendGoDown">{{ currentCurrency }}</h2>
+    <svg [class.icon-trend-up]="!isTrendGoDown" class="trend-direction"></svg>
     <h4>{{ prevCurrency }}</h4>
 </mat-card>
