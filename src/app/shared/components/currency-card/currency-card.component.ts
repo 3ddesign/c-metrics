@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class CurrencyCardComponent {
   @Input() public currentCurrency = 0;
   @Input() public currencyTitle = '';
-  @Input() public currencyDate = new Date();
+  @Input() public currencyDate = null;
   public isTrendGoDown = false;
 
   @Input() public set prevCurrency(prevCurrency: number) {

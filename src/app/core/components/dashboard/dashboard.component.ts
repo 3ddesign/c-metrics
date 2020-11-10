@@ -15,11 +15,8 @@ export class DashboardComponent {
   public currentUSDCurrency!: number;
   public prevUAHCurrency!: number;
   public prevUSDCurrency!: number;
-
-  public prevCurrency!: number;
-
-  private currentDate = `${new Date().getFullYear()}-${'0' + new Date().getDate().toString().slice(-2)}-${new Date().getMonth()}`;
-  private prevDate = `${new Date().getFullYear()}-${'0' + (new Date().getDate() - 1).toString().slice(-2)}-${new Date().getMonth()}`;
+  public currentDate = `${new Date().getFullYear()}-${this.addZero(new Date().getDate())}-${this.addZero(new Date().getMonth())}`;
+  private prevDate = `${new Date().getFullYear()}-${this.addZero(new Date().getDate())}-${this.addZero(new Date().getMonth())}`;
 
   constructor(private apiService: ApiService) {
     this.getCurrencyData();
@@ -37,4 +34,8 @@ export class DashboardComponent {
       this.prevUSDCurrency = currency[1].UAH_USD[this.prevDate];
     });
   }
+
+  private addZero(date: number): string | number {
+       return date.toString().length === 1 ? '0' + date : date;
+    }
 }
