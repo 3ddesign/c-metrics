@@ -15,8 +15,8 @@ export class DashboardComponent {
   public currentUSDCurrency!: number;
   public prevUAHCurrency!: number;
   public prevUSDCurrency!: number;
-  public currentDate = `${new Date().getFullYear()}-${this.addZero(new Date().getDate())}-${this.addZero(new Date().getMonth())}`;
-  private prevDate = `${new Date().getFullYear()}-${this.addZero(new Date().getDate())}-${this.addZero(new Date().getMonth())}`;
+  public currentDate = `${new Date().getFullYear()}-${this.addZero(new Date().getMonth() + 1)}-${this.addZero(new Date().getDate())}`;
+  private prevDate = `${new Date().getFullYear()}-${this.addZero(new Date().getMonth() + 1)}-${this.addZero(new Date().getDate() - 1)}`;
 
   constructor(private apiService: ApiService) {
     this.getCurrencyData();
