@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
-import { forkJoin } from 'rxjs';
-import { take } from 'rxjs/operators';
-import { ICMetricsUAHCurrencyResponce } from '../../interfaces/http.interfaces';
+import { ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -23,15 +21,12 @@ export class DashboardComponent {
    }
 
   private getCurrencyData(): void {
-    const currentCurrencyRequest = this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra&date=${this.currentDate}`);
-    const prevCurrencyRequest = this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra&date=${this.prevDate}`);
-
-    forkJoin([currentCurrencyRequest, prevCurrencyRequest])
-    .pipe(take(1)).subscribe((currency: ICMetricsUAHCurrencyResponce[]) => {
-      this.currentUAHCurrency = currency[0].USD_UAH[this.currentDate];
-      this.currentUSDCurrency = currency[0].UAH_USD[this.currentDate];
-      this.prevUAHCurrency = currency[1].USD_UAH[this.prevDate];
-      this.prevUSDCurrency = currency[1].UAH_USD[this.prevDate];
+    this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra&date=${this.prevDate}&endDate=${this.currentDate}`)
+    .subscribe((currency: ICMetricsUAHCurrencyResponce) => {
+      this.currentUAHCurrency = currency.USD_UAH[this.currentDate];
+      this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
+      this.prevUAHCurrency = currency.USD_UAH[this.prevDate];
+      this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
     });
   }
 
