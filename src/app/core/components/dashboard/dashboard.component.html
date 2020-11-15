@@ -2,13 +2,18 @@
     <span>Currency metrics</span>
 </mat-toolbar>
 
-<div class="content-wrapper" *ngIf="currentUSDCurrency && prevUSDCurrency">
+<div class="content-wrapper">
+<app-loader *ngIf="isLoadingContent"></app-loader>
+<ng-container *ngIf="currentUSDCurrency && prevUSDCurrency && !isLoadingContent">
   <app-currency-card [currencyTitle]="'USD/UAH'"
                      [currentCurrency]="currentUSDCurrency" 
                      [prevCurrency]="prevUSDCurrency" 
-                     [currencyDate]="currentDate"></app-currency-card>
+                     [currencyDate]="currentDate">
+  </app-currency-card>
   <app-currency-card [currencyTitle]="'UAH/USD'" 
                      [currentCurrency]="currentUAHCurrency" 
                      [prevCurrency]="prevUAHCurrency" 
-                     [currencyDate]="currentDate"></app-currency-card>
+                     [currencyDate]="currentDate">
+   </app-currency-card>
+</ng-container>
 </div>

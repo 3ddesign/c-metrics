@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  public isLoadingContent = true;
   public currentUAHCurrency!: number;
   public currentUSDCurrency!: number;
   public prevUAHCurrency!: number;
@@ -21,12 +22,14 @@ export class DashboardComponent {
    }
 
   private getCurrencyData(): void {
+    this.isLoadingContent = true;
     this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra&date=${this.prevDate}&endDate=${this.currentDate}`)
     .subscribe((currency: ICMetricsUAHCurrencyResponce) => {
       this.currentUAHCurrency = currency.USD_UAH[this.currentDate];
       this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
       this.prevUAHCurrency = currency.USD_UAH[this.prevDate];
       this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
+      this.isLoadingContent = false;
     });
   }
 
