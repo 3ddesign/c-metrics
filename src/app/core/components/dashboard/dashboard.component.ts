@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { take } from 'rxjs/operators';
 
 import { ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
 import { ApiService } from '../../services/api.service';
@@ -16,15 +17,40 @@ export class DashboardComponent {
   public prevUSDCurrency!: number;
   public currentDate = `${new Date().getFullYear()}-${this.addZero(new Date().getMonth() + 1)}-${this.addZero(new Date().getDate())}`;
   private prevDate = `${new Date().getFullYear()}-${this.addZero(new Date().getMonth() + 1)}-${this.addZero(new Date().getDate() - 1)}`;
+  private defaultTouch = { x: 0, y: 0, time: 0 };
 
   constructor(private apiService: ApiService) {
     this.getCurrencyData();
    }
 
+   @HostListener('touchstart', ['$event'])
+   @HostListener('touchend', ['$event'])
+   @HostListener('touchcancel', ['$event'])
+   handleTouch(event: TouchEvent): void {
+       const touch = event.touches[0] || event.changedTouches[0];
+
+       if (event.type === 'touchstart') {
+           this.defaultTouch.x = touch.pageX;
+           this.defaultTouch.y = touch.pageY;
+           this.defaultTouch.time = event.timeStamp;
+       } else if (event.type === 'touchend') {
+        const deltaY = touch.pageY - this.defaultTouch.y;
+        const deltaTime = event.timeStamp - this.defaultTouch.time;
+        if (deltaTime < 500) {
+               if (Math.abs(deltaY) > 60) {
+                   if (deltaY > 0) {
+                    this.doSwipeDown();
+               }
+            }
+          }
+      }
+   }
+
+
   private getCurrencyData(): void {
     this.isLoadingContent = true;
     this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra&date=${this.prevDate}&endDate=${this.currentDate}`)
-    .subscribe((currency: ICMetricsUAHCurrencyResponce) => {
+    .pipe(take(1)).subscribe((currency: ICMetricsUAHCurrencyResponce) => {
       this.currentUAHCurrency = currency.USD_UAH[this.currentDate];
       this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
       this.prevUAHCurrency = currency.USD_UAH[this.prevDate];
@@ -36,4 +62,8 @@ export class DashboardComponent {
   private addZero(date: number): string | number {
        return date.toString().length === 1 ? '0' + date : date;
     }
+
+  private doSwipeDown(): void {
+    this.getCurrencyData();
+  }
 }

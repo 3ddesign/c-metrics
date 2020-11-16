@@ -1,10 +1,10 @@
-<mat-toolbar>
+<div class="content-wrapper">
+  <mat-toolbar>
     <span>Currency metrics</span>
 </mat-toolbar>
 
-<div class="content-wrapper">
 <app-loader *ngIf="isLoadingContent"></app-loader>
-<ng-container *ngIf="currentUSDCurrency && prevUSDCurrency && !isLoadingContent">
+<ng-container *ngIf="currentUSDCurrency && prevUSDCurrency && !isLoadingContent" >
   <app-currency-card [currencyTitle]="'USD/UAH'"
                      [currentCurrency]="currentUSDCurrency" 
                      [prevCurrency]="prevUSDCurrency" 
