@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-currency-card',
   templateUrl: './currency-card.component.html',
-  styleUrls: ['./currency-card.component.scss']
+  styleUrls: ['./currency-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CurrencyCardComponent {
   @Input() public currentCurrency = 0;

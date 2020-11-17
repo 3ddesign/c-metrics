@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { take } from 'rxjs/operators';
 
 import { ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
@@ -7,7 +7,8 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
   public isLoadingContent = true;
@@ -19,7 +20,7 @@ export class DashboardComponent {
   private prevDate = `${new Date().getFullYear()}-${this.addZero(new Date().getMonth() + 1)}-${this.addZero(new Date().getDate() - 1)}`;
   private defaultTouch = { x: 0, y: 0, time: 0 };
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {
     this.getCurrencyData();
    }
 
@@ -56,6 +57,7 @@ export class DashboardComponent {
       this.prevUAHCurrency = currency.USD_UAH[this.prevDate];
       this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
       this.isLoadingContent = false;
+      this.cdr.markForCheck();
     });
   }
 
