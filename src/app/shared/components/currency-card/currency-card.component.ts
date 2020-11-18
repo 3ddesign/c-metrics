@@ -11,14 +11,14 @@ export class CurrencyCardComponent {
   @Input() public currencyTitle = '';
   @Input() public currencyDate = null;
   public isTrendGoDown = false;
+  public currencyDayAgo!: number;
 
   @Input() public set prevCurrency(prevCurrency: number) {
+    this.currencyDayAgo = prevCurrency;
     if (this.currentCurrency && prevCurrency) {
       this.defineCurrencyTrand(prevCurrency);
     }
   }
-
-  constructor() { }
 
   private defineCurrencyTrand(prevCurrency: number): void {
     this.isTrendGoDown = this.currentCurrency < prevCurrency;

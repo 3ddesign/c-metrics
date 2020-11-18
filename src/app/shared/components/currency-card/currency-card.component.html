@@ -1,9 +1,12 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>{{ currencyTitle }}</mat-card-title>
-        <mat-card-subtitle>{{ currencyDate | date }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ currencyDate | date }} </mat-card-subtitle>
       </mat-card-header>
-    <h2 [class.trend-down]="isTrendGoDown">{{ currentCurrency }}</h2>
+  <div class="currency-block">
+    <h2 [class.trend-down]="isTrendGoDown">{{ currentCurrency }}</h2>  
+    <span> {{ currencyDayAgo }}</span>
+  </div>
     <div class="trend-direction" [class.trend-transform]="!isTrendGoDown">
     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 490.667 490.667" style="enable-background:new 0 0 490.667 490.667;" xml:space="preserve">
@@ -45,5 +48,4 @@
 </g>
 </svg>
 </div>
-    <h4>{{ prevCurrency }}</h4>
 </mat-card>
