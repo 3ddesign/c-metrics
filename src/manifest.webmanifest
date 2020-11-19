@@ -1,7 +1,7 @@
 {
-  "name": "c-metrics",
+  "name": "CMetrics",
   "description": "Simple currency watcher based on PWA",
-  "short_name": "c-metrics",
+  "short_name": "CMetrics",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
