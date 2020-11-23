@@ -14,3 +14,8 @@ app-loader {
     left: 45%;
     top: 45%;
 }
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+}
