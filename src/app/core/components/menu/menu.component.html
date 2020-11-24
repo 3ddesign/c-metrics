@@ -1,5 +1,10 @@
-<button [matMenuTriggerFor]="menu">Menu</button>
+<span
+ [matMenuTriggerFor]="menu">
+ <div></div>
+ <div></div>
+ <div></div>
+</span>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Logout</button>
+  <button mat-menu-item>Dashboard</button>
+  <button mat-menu-item>Exit</button>
 </mat-menu>
