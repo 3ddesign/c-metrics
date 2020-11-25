@@ -5,6 +5,6 @@
  <div></div>
 </span>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>Dashboard</button>
-  <button mat-menu-item>Exit</button>
+  <button mat-menu-item disabled>Dashboard</button>
+  <button mat-menu-item (click)="onCloseApp()">Exit</button>
 </mat-menu>

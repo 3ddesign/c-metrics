@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -6,11 +6,11 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
+  onCloseApp(): void {
+    window.close();
   }
-
 }
