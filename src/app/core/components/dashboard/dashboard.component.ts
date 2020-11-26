@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { take } from 'rxjs/operators';
-
 import { ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
 import { ApiService } from '../../services/api.service';
 
@@ -29,7 +28,6 @@ export class DashboardComponent {
    @HostListener('touchcancel', ['$event'])
    handleTouch(event: TouchEvent): void {
        const touch = event.touches[0] || event.changedTouches[0];
-
        if (event.type === 'touchstart') {
            this.defaultTouch.x = touch.pageX;
            this.defaultTouch.y = touch.pageY;

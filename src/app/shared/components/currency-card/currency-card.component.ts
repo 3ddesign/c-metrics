@@ -7,11 +7,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CurrencyCardComponent {
+  public isTrendGoDown = false;
+  public currencyDayAgo!: number;
   @Input() public currentCurrency = 0;
   @Input() public currencyTitle = '';
   @Input() public currencyDate = null;
-  public isTrendGoDown = false;
-  public currencyDayAgo!: number;
 
   @Input() public set prevCurrency(prevCurrency: number) {
     this.currencyDayAgo = prevCurrency;
@@ -23,5 +23,4 @@ export class CurrencyCardComponent {
   private defineCurrencyTrand(prevCurrency: number): void {
     this.isTrendGoDown = this.currentCurrency < prevCurrency;
   }
-
 }
