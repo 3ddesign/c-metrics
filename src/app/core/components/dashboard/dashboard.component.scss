@@ -1,21 +1,15 @@
 .content-wrapper {
     background: bisque;
+    position: absolute;
+    width: 100%;
     height: 100%;
     app-currency-card {
         width: 100%;
     }
-}
-  .mat-toolbar {
-    background: black;
-}
 
 app-loader {
     position: absolute;
     left: 45%;
     top: 45%;
 }
-
-mat-toolbar {
-    display: flex;
-    justify-content: space-between;
 }
