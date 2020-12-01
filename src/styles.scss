@@ -2,3 +2,10 @@
 
 html, body {  height: 100%; background-color: black; overflow: auto }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.content-wrapper {
+    background: bisque;
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+  }
