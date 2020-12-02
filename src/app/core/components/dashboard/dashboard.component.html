@@ -1,15 +1,20 @@
 <div class="content-wrapper">
 <app-loader *ngIf="isLoadingContent"></app-loader>
-<ng-container *ngIf="currentUSDCurrency && prevUSDCurrency && !isLoadingContent" >
-  <app-currency-card [currencyTitle]="'USD/UAH'"
+<ng-container *ngIf="currentUAHCurrency && !isLoadingContent" >
+  <!-- <app-currency-card [currencyTitle]="'USD/UAH'"
                      [currentCurrency]="currentUSDCurrency" 
                      [prevCurrency]="prevUSDCurrency" 
                      [currencyDate]="currentDate">
+  </app-currency-card> -->
+  <app-currency-card [currencyTitle]="'UAH/EUR'" 
+                     [currentCurrency]="currentEURCurrency" 
+                     [prevCurrency]="prevEURCurrency" 
+                     [currencyDate]="currentDate">
   </app-currency-card>
-  <app-currency-card [currencyTitle]="'UAH/USD'" 
+    <app-currency-card [currencyTitle]="'UAH/USD'" 
                      [currentCurrency]="currentUAHCurrency" 
                      [prevCurrency]="prevUAHCurrency" 
                      [currencyDate]="currentDate">
-   </app-currency-card>
+  </app-currency-card>
 </ng-container>
 </div>

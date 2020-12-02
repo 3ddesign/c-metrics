@@ -13,6 +13,8 @@ export class DashboardComponent {
   public isLoadingContent = true;
   public currentUAHCurrency!: number;
   public currentUSDCurrency!: number;
+  public currentEURCurrency!: number;
+  public prevEURCurrency!: number;
   public prevUAHCurrency!: number;
   public prevUSDCurrency!: number;
   public currentDate = `${new Date().getFullYear()}-${this.addZero(new Date().getMonth() + 1)}-${this.addZero(new Date().getDate())}`;
@@ -48,14 +50,18 @@ export class DashboardComponent {
 
   private getCurrencyData(): void {
     this.isLoadingContent = true;
-    this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,UAH_USD&compact=ultra&date=${this.prevDate}&endDate=${this.currentDate}`)
+    this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,EUR_UAH&compact=ultra&date=${this.prevDate}&endDate=${this.currentDate}`)
     .pipe(take(1)).subscribe((currency: ICMetricsUAHCurrencyResponce) => {
       this.currentUAHCurrency = currency.USD_UAH[this.currentDate];
-      this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
+      // this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
+      this.currentEURCurrency = currency.EUR_UAH[this.currentDate];
       this.prevUAHCurrency = currency.USD_UAH[this.prevDate];
-      this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
+      // this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
+      this.prevEURCurrency = currency.EUR_UAH[this.prevDate];
       this.isLoadingContent = false;
       this.cdr.markForCheck();
+      console.log(this.prevEURCurrency);
+      console.log(this.currentEURCurrency);
     });
   }
 
