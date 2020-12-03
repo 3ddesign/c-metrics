@@ -1,39 +1,39 @@
 mat-card {
-    margin: 20px;
+  margin: 20px;
 }
 
 h2 {
-    color: green;
-    font-size: 35px;
+  color: green;
+  font-size: 35px;
 }
 
 .trend-down {
-    color: red;
+  color: red;
 }
 
 .trend-transform {
-    transform: scale(1, -1)
+  transform: scale(1, -1);
 }
 
 .trend-direction {
-    width: 60px;
-    height: 60px;
-    top: 30%;
-    right: 10%;
-    position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 30%;
+  right: 10%;
+  position: absolute;
 }
 
 #upTrend {
-    fill: green;
+  fill: green;
 }
 
 #downTrend {
-    fill: red;
+  fill: red;
 }
 
 .currency-block {
-    width: 200px;
-    span {
-        color: gray;
-    }
+  width: 200px;
+  span {
+    color: gray;
+  }
 }
