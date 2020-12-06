@@ -23,6 +23,7 @@ export class DashboardComponent {
 
   constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {
     this.getCurrencyData();
+    this.getAddtionalData();
    }
 
    @HostListener('touchstart', ['$event'])
@@ -53,15 +54,22 @@ export class DashboardComponent {
     this.apiService.getCurrency(`/api/v7/convert?q=USD_UAH,EUR_UAH&compact=ultra&date=${this.prevDate}&endDate=${this.currentDate}`)
     .pipe(take(1)).subscribe((currency: ICMetricsUAHCurrencyResponce) => {
       this.currentUAHCurrency = currency.USD_UAH[this.currentDate];
-      // this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
       this.currentEURCurrency = currency.EUR_UAH[this.currentDate];
       this.prevUAHCurrency = currency.USD_UAH[this.prevDate];
-      // this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
       this.prevEURCurrency = currency.EUR_UAH[this.prevDate];
       this.isLoadingContent = false;
       this.cdr.markForCheck();
-      console.log(this.prevEURCurrency);
-      console.log(this.currentEURCurrency);
+    });
+  }
+
+  private getAddtionalData(): void {
+    this.isLoadingContent = true;
+    this.apiService.getCurrency(`/api/v7/convert?q=UAH_USD&compact=ultra&date=${this.prevDate}&endDate=${this.currentDate}`)
+    .pipe(take(1)).subscribe((currency: ICMetricsUAHCurrencyResponce) => {
+      this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
+      this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
+      this.isLoadingContent = false;
+      this.cdr.markForCheck();
     });
   }
 

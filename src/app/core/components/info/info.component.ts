@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 
 export interface PeriodicElement {
-  name: string;
+  currency: string;
   position: number;
-  weight: number;
-  symbol: string;
+  value: number;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'USD/UAH', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'USD/UAH', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'USD/UAH', weight: 6.941, symbol: 'Li'}
+  {position: 1, currency: 'USD/UAH', value: 1.0079},
+  {position: 2, currency: 'USD/UAH', value: 4.0026},
+  {position: 3, currency: 'USD/UAH', value: 6.941}
 ];
 
 @Component({
@@ -19,6 +18,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./info.component.scss']
 })
 export class InfoComponent {
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    displayedColumns: string[] = ['position', 'currency', 'value'];
     dataSource = ELEMENT_DATA;
 }
