@@ -2,6 +2,11 @@ p {
   color: white;
 }
 
+.content-wrapper {
+  display: flex;
+}
+
 table {
+  margin: 20px;
   width: 100%;
 }
