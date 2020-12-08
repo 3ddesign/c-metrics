@@ -9,8 +9,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 export class MenuComponent {
 
   constructor() { }
-
-  onCloseApp(): void {
-    window.close();
-  }
 }
