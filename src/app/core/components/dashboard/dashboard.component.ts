@@ -78,6 +78,6 @@ export class DashboardComponent {
     }
 
   private doSwipeDown(): void {
-    this.getCurrencyData();
+    if (this.apiService.isApplicationOnline) this.getCurrencyData();
   }
 }

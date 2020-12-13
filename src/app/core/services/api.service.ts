@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class ApiService {
+  public isApplicationOnline!: boolean;
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   public getCurrency(path: string, params?: any): Observable<any> {
@@ -34,9 +35,11 @@ export class ApiService {
   }
 
   private handleError(error: any): Observable<any> {
-    this.snackBar.open('Http Error', error?.statusText, {
-      duration: 4000,
-    });
+    if (this.isApplicationOnline) {
+      this.snackBar.open('Http Error', error?.statusText, {
+        duration: 4000,
+      });
+    }
     return of(error);
   }
 }
