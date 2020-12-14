@@ -26,5 +26,18 @@
         ]
       }
     }
-  ]
+  ],
+  "dataGroups": [{
+    "name": "api-performance",
+    "urls": [
+      "https://free.currconv.com/api/v7/**",
+      "http://http://c-metrics.scherbakov.com.ua/**",
+      "http://localhost:4200/**"
+    ],
+    "cacheConfig": {
+      "maxSize": 10000,
+      "maxAge": "3d",
+      "strategy": "performance"
+    }
+  }]
 }
