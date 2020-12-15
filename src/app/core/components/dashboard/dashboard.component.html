@@ -3,6 +3,13 @@
   <ng-container *ngIf="currentUAHCurrency && !isLoadingContent">
     <app-currency-card
       [currencyTitle]="'UAH/EUR'"
+      [currentCurrency]="currentEURUAHCurrency"
+      [prevCurrency]="prevEURUAHCurrency"
+      [currencyDate]="currentDate"
+    >
+    </app-currency-card>
+    <app-currency-card
+      [currencyTitle]="'EUR/UAH'"
       [currentCurrency]="currentEURCurrency"
       [prevCurrency]="prevEURCurrency"
       [currencyDate]="currentDate"
