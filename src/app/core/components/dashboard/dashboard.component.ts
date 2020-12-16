@@ -23,7 +23,7 @@ export class DashboardComponent {
   private prevDate = `${new Date().getFullYear()}-${this.addZero(new Date().getMonth() + 1)}-${this.addZero(new Date().getDate() - 1)}`;
   private defaultTouch = { x: 0, y: 0, time: 0 };
 
-  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {
+  constructor(public apiService: ApiService, private cdr: ChangeDetectorRef) {
     this.getCurrencyData();
     this.getAddtionalData();
    }
