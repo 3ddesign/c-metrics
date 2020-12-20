@@ -6,6 +6,9 @@ import { InfoComponent } from './core/components/info/info.component';
 const routes: Routes = [{
   path: '',
   component: DashboardComponent,
+}, {
+  path: 'info',
+  component: InfoComponent,
 }];
 
 @NgModule({
