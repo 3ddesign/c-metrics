@@ -1,6 +1,6 @@
 export interface ICMetricsProdEnvironment {
-    production: boolean;
-    isOffileMode: boolean;
-    currencyApi: string;
-    accessKey: string;
+  production: boolean;
+  isOffileMode: boolean;
+  currencyApi: string;
+  accessKey: string;
 }
