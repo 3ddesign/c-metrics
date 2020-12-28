@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
   checkNetworkStatus(): void {
     this.connectionService.monitor().subscribe((isConnected) => {
       this.apiService.isApplicationOnline = this.isConnected = isConnected;
-
     });
   }
 }
