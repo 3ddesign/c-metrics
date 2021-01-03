@@ -7,6 +7,7 @@ import {
 import { take } from 'rxjs/operators';
 import { ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
 import { ApiService } from '../../services/api.service';
+import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-dashboard',
