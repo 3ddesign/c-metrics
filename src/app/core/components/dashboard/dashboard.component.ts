@@ -25,12 +25,8 @@ export class DashboardComponent {
   public prevEURUAHCurrency!: number;
   public prevUAHCurrency!: number;
   public prevUSDCurrency!: number;
-  public currentDate = `${new Date().getFullYear()}-${this.addZero(
-    new Date().getMonth() + 1
-  )}-${this.addZero(new Date().getDate())}`;
-  private prevDate = `${new Date().getFullYear()}-${this.addZero(
-    new Date().getMonth() + 1
-  )}-${this.addZero(new Date().getDate() - 1)}`;
+  public currentDate = DateTime.local().toISODate();
+  private prevDate = DateTime.local().minus({ days: 1 }).toISODate();
   private defaultTouch = { x: 0, y: 0, time: 0 };
 
   constructor(public apiService: ApiService, private cdr: ChangeDetectorRef) {
