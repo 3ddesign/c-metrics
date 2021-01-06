@@ -2,12 +2,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  HostListener,
+  HostListener
 } from '@angular/core';
+import { DateTime } from 'luxon';
 import { take } from 'rxjs/operators';
 import { ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
 import { ApiService } from '../../services/api.service';
-import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,6 +29,8 @@ export class DashboardComponent {
   private prevDate = DateTime.local().minus({ days: 1 }).toISODate();
   private defaultTouch = { x: 0, y: 0, time: 0 };
 
+  private readonly deltaInterval = 500;
+
   constructor(public apiService: ApiService, private cdr: ChangeDetectorRef) {
     this.getCurrencyData();
     this.getAddtionalData();
@@ -46,7 +48,7 @@ export class DashboardComponent {
     } else if (event.type === 'touchend') {
       const deltaY = touch.pageY - this.defaultTouch.y;
       const deltaTime = event.timeStamp - this.defaultTouch.time;
-      if (deltaTime < 500) {
+      if (deltaTime < this.deltaInterval) {
         if (Math.abs(deltaY) > 60) {
           if (deltaY > 0) {
             this.doSwipeDown();
@@ -88,10 +90,6 @@ export class DashboardComponent {
         this.isLoadingContent = false;
         this.cdr.markForCheck();
       });
-  }
-
-  private addZero(date: number): string | number {
-    return date.toString().length === 1 ? '0' + date : date;
   }
 
   private doSwipeDown(): void {
