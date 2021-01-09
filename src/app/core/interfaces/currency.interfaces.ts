@@ -4,3 +4,9 @@ export interface ICMetricsUAHCurrencyResponce {
   EUR_UAH: { [key: string]: number };
   UAH_EUR: { [key: string]: number };
 }
+
+export interface ICMetricsCurrencyReport {
+  currency: string;
+  position: number;
+  value: number;
+}
