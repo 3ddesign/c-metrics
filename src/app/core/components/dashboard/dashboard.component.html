@@ -2,32 +2,32 @@
   <app-loader
     *ngIf="apiService.isApplicationOnline && isLoadingContent"
   ></app-loader>
-  <ng-container *ngIf="currentUAHCurrency && !isLoadingContent">
+  <ng-container *ngIf="currencyData?.currentUAHCurrency && !isLoadingContent">
     <app-currency-card
       [currencyTitle]="'UAH/EUR'"
-      [currentCurrency]="currentEURUAHCurrency"
-      [prevCurrency]="prevEURUAHCurrency"
+      [currentCurrency]="currencyData.currentEURUAHCurrency"
+      [prevCurrency]="currencyData.prevEURUAHCurrency"
       [currencyDate]="currentDate"
     >
     </app-currency-card>
     <app-currency-card
       [currencyTitle]="'EUR/UAH'"
-      [currentCurrency]="currentEURCurrency"
-      [prevCurrency]="prevEURCurrency"
+      [currentCurrency]="currencyData.currentEURCurrency"
+      [prevCurrency]="currencyData.prevEURCurrency"
       [currencyDate]="currentDate"
     >
     </app-currency-card>
     <app-currency-card
       [currencyTitle]="'UAH/USD'"
-      [currentCurrency]="currentUAHCurrency"
-      [prevCurrency]="prevUAHCurrency"
+      [currentCurrency]="currencyData.currentUAHCurrency"
+      [prevCurrency]="currencyData.prevUAHCurrency"
       [currencyDate]="currentDate"
     >
     </app-currency-card>
     <app-currency-card
       [currencyTitle]="'USD/UAH'"
-      [currentCurrency]="currentUSDCurrency"
-      [prevCurrency]="prevUSDCurrency"
+      [currentCurrency]="currencyData.currentUSDCurrency"
+      [prevCurrency]="currencyData.prevUSDCurrency"
       [currencyDate]="currentDate"
     >
     </app-currency-card>

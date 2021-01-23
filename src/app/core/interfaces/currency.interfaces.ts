@@ -10,3 +10,14 @@ export interface ICMetricsCurrencyReport {
   position: number;
   value: number;
 }
+
+export interface ICMetricsCurrencyData {
+  currentUAHCurrency: number;
+  currentUSDCurrency: number;
+  currentEURCurrency: number;
+  currentEURUAHCurrency: number;
+  prevEURCurrency: number;
+  prevEURUAHCurrency: number;
+  prevUAHCurrency: number;
+  prevUSDCurrency: number;
+}

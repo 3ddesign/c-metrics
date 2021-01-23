@@ -5,11 +5,11 @@
     "ng": "ng",
     "build": "ng build",
     "start": "ng serve",
-    "build:stats": "ng build --stats-json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "analyze": "webpack-bundle-analyzer dist/c-metrics/stats.json"
+    "build:stats": "ng build --stats-json",
+    "build:analyze": "webpack-bundle-analyzer dist/c-metrics/stats.json"
   },
   "private": true,
   "dependencies": {

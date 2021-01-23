@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { DateTime } from 'luxon';
 import { take } from 'rxjs/operators';
-import { ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
+import { ICMetricsCurrencyData, ICMetricsUAHCurrencyResponce } from '../../interfaces/currency.interfaces';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -17,14 +17,16 @@ import { ApiService } from '../../services/api.service';
 })
 export class DashboardComponent {
   public isLoadingContent = true;
-  public currentUAHCurrency!: number;
-  public currentUSDCurrency!: number;
-  public currentEURCurrency!: number;
-  public currentEURUAHCurrency!: number;
-  public prevEURCurrency!: number;
-  public prevEURUAHCurrency!: number;
-  public prevUAHCurrency!: number;
-  public prevUSDCurrency!: number;
+  public currencyData: ICMetricsCurrencyData  = {
+    currentUAHCurrency: 0,
+    currentUSDCurrency: 0,
+    currentEURCurrency: 0,
+    currentEURUAHCurrency: 0,
+    prevEURCurrency: 0,
+    prevEURUAHCurrency: 0,
+    prevUAHCurrency: 0,
+    prevUSDCurrency: 0
+  }; 
   public currentDate = DateTime.local().toISODate();
   private prevDate = DateTime.local().minus({ days: 1 }).toISODate();
   private defaultTouch = { x: 0, y: 0, time: 0 };
@@ -66,10 +68,10 @@ export class DashboardComponent {
       )
       .pipe(take(1))
       .subscribe((currency: ICMetricsUAHCurrencyResponce) => {
-        this.currentUAHCurrency = currency.USD_UAH[this.currentDate];
-        this.currentEURCurrency = currency.EUR_UAH[this.currentDate];
-        this.prevUAHCurrency = currency.USD_UAH[this.prevDate];
-        this.prevEURCurrency = currency.EUR_UAH[this.prevDate];
+        this.currencyData.currentUAHCurrency = currency.USD_UAH[this.currentDate];
+        this.currencyData.currentEURCurrency = currency.EUR_UAH[this.currentDate];
+        this.currencyData.prevUAHCurrency = currency.USD_UAH[this.prevDate];
+        this.currencyData.prevEURCurrency = currency.EUR_UAH[this.prevDate];
         this.isLoadingContent = false;
         this.cdr.markForCheck();
       });
@@ -83,10 +85,10 @@ export class DashboardComponent {
       )
       .pipe(take(1))
       .subscribe((currency: ICMetricsUAHCurrencyResponce) => {
-        this.currentUSDCurrency = currency.UAH_USD[this.currentDate];
-        this.currentEURUAHCurrency = currency.UAH_EUR[this.currentDate];
-        this.prevEURUAHCurrency = currency.UAH_EUR[this.prevDate];
-        this.prevUSDCurrency = currency.UAH_USD[this.prevDate];
+        this.currencyData.currentUSDCurrency = currency.UAH_USD[this.currentDate];
+        this.currencyData.currentEURUAHCurrency = currency.UAH_EUR[this.currentDate];
+        this.currencyData.prevEURUAHCurrency = currency.UAH_EUR[this.prevDate];
+        this.currencyData.prevUSDCurrency = currency.UAH_USD[this.prevDate];
         this.isLoadingContent = false;
         this.cdr.markForCheck();
       });
