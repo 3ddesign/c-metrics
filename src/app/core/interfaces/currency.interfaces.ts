@@ -7,7 +7,7 @@ export interface ICMetricsUAHCurrencyResponce {
 
 export interface ICMetricsCurrencyReport {
   currency: string;
-  position: number;
+  date: number;
   value: number;
 }
 

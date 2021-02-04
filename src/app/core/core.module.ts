@@ -6,11 +6,11 @@ import { MatTableModule } from '@angular/material/table';
 
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { InfoComponent } from './components/info/info.component';
+import { HistoryComponent } from './components/history/history.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, InfoComponent],
+  declarations: [DashboardComponent, HistoryComponent],
   imports: [
     SharedModule,
     MatTableModule,
