@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 import * as mockData from '../mock-data/report';
 
 @Component({
@@ -11,9 +12,9 @@ export class HistoryComponent {
   dataSource = mockData.REPORT_DATA;
   historyData: string[] = ['date', 'currency', 'value'];
 
-  constructor() {}
+  constructor(public apiService: ApiService) {}
 
   onLoadHisotry(): void {
-
+    // this.apiService.getCurrencyHistory().subscribe();
   }
 }

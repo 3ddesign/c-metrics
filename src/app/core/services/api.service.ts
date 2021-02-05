@@ -23,9 +23,9 @@ export class ApiService {
       );
   }
 
-  public getPrivatCurrency(): Observable<any> {
+  public getCurrencyHistory(path: string, params?: any): Observable<any> {
     return this.http
-      .get<any>(`${environment.currencyApi}/exchange_rates?json&date=01.12.2014`)
+      .get<any>(`${environment.currencyApi}${path}&apiKey=${environment.accessKey}`, { params })
       .pipe(
         share(),
         catchError((error: any) => {
