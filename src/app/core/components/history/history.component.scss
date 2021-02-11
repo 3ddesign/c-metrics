@@ -5,6 +5,12 @@ p {
 .content-wrapper {
   display: flex;
   justify-content: space-between;
+  
+  app-loader {
+    position: absolute;
+    left: 45%;
+    top: 45%;
+  }
 }
 
 table {

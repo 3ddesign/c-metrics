@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { SubSink } from 'subsink';
 import { ApiService } from '../../services/api.service';
-import * as mockData from '../mock-data/report';
 import { DateTime } from 'luxon';
 @Component({
   selector: 'app-history',
@@ -11,6 +10,7 @@ import { DateTime } from 'luxon';
 export class HistoryComponent implements OnDestroy {
   dataSource!: { date: string, currency: string, value: number }[];
   historyData: string[] = ['date', 'currency', 'value'];
+  isLoadingContent = true;
 
   private subs = new SubSink();
   private daysAmount: { days: number } = { days: 8 };
@@ -27,6 +27,7 @@ export class HistoryComponent implements OnDestroy {
       for (const date in currencyHistory[this.mainCurrencyPair]) {
         this.dataSource.push({ date: date, currency: 'USD/UAH', value: currencyHistory[this.mainCurrencyPair][date] });
       }
+      this.isLoadingContent = false;
     }));
   }
 

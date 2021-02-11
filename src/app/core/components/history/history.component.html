@@ -1,5 +1,7 @@
 <div class="content-wrapper">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <app-loader *ngIf="isLoadingContent"
+  ></app-loader>
+  <table mat-table [dataSource]="dataSource" *ngIf="!isLoadingContent">
 
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef>Date</th>
