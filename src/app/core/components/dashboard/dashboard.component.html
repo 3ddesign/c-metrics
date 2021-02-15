@@ -1,7 +1,9 @@
 <div class="content-wrapper">
+
   <app-loader
-    *ngIf="apiService.isApplicationOnline && isLoadingContent"
+    *ngIf="isLoadingContent"
   ></app-loader>
+  
   <ng-container *ngIf="currencyData?.currentUAHCurrency && !isLoadingContent">
     <app-currency-card
       [currencyTitle]="'UAH/EUR'"
