@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BudgetComponent } from './core/components/budget/budget.component';
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
 import { HistoryComponent } from './core/components/history/history.component';
 
@@ -9,6 +10,9 @@ const routes: Routes = [{
 }, {
   path: 'history',
   component: HistoryComponent,
+}, {
+  path: 'budget',
+  component: BudgetComponent,
 }];
 
 @NgModule({
