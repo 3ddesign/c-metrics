@@ -4,14 +4,7 @@ export interface ICMetricsUAHCurrencyResponce {
   EUR_UAH: { [key: string]: number };
   UAH_EUR: { [key: string]: number };
 }
-
-export interface ICMetricsCurrencyReport {
-  currency: any;
-  date: string;
-  value: number;
-}
-
-export interface ICMetricsCurrencyData {
+ export interface ICMetricsCurrencyData {
   currentUAHCurrency: number;
   currentUSDCurrency: number;
   currentEURCurrency: number;
