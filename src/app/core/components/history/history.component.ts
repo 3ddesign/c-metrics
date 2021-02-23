@@ -1,11 +1,12 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { SubSink } from 'subsink';
 import { ApiService } from '../../services/api.service';
 import { DateTime } from 'luxon';
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss']
+  styleUrls: ['./history.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class HistoryComponent implements OnDestroy {
   dataSource!: { date: string, currency: string, value: number }[];
