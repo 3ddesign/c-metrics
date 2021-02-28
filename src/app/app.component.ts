@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
 import { ConnectionService } from 'ng-connection-service';
 import { SubSink } from 'subsink';
 import { ApiService } from './core/services/api.service';
@@ -20,21 +19,12 @@ export class AppComponent implements OnInit, OnDestroy {
   public isConnected = true;
   private subs = new SubSink();
   constructor(
-    private swUpdate: SwUpdate,
     private apiService: ApiService,
     private connectionService: ConnectionService
   ) {}
 
   ngOnInit(): void {
     this.checkNetworkStatus();
-    if (this.swUpdate.isEnabled) {
-    this.subs.add(
-      this.swUpdate.available.subscribe(() => {
-        if (confirm("New version available. Load New Version?")) {
-          window.location.reload();
-        }
-      }));
-    }
   }
 
   checkNetworkStatus(): void {
