@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 
@@ -16,6 +17,7 @@ import { BudgetComponent } from './components/budget/budget.component';
     SharedModule,
     MatTableModule,
     MatSnackBarModule,
+    MatButtonToggleModule,
     CommonModule
   ]
 })
