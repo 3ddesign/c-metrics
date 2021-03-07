@@ -8,11 +8,11 @@ import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HistoryComponent } from './components/history/history.component';
-import { BudgetComponent } from './components/budget/budget.component';
+import { ConverterComponent } from './components/converter/converter.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, HistoryComponent, BudgetComponent],
+  declarations: [DashboardComponent, HistoryComponent, ConverterComponent],
   imports: [
     SharedModule,
     MatTableModule,
