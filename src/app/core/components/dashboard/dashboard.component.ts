@@ -10,7 +10,7 @@ import { ICMetricsCurrencyData, ICMetricsUAHCurrencyResponce } from '../../inter
 import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'cmx-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

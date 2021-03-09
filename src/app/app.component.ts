@@ -7,7 +7,7 @@ import { ApiService } from './core/services/api.service';
   selector: "app-root",
   template: ` <mat-toolbar>
       <span>Currency metrics</span>
-      <app-menu></app-menu>
+      <cmx-menu></cmx-menu>
     </mat-toolbar>
     <router-outlet></router-outlet>
     <div *ngIf="!isConnected" class="connection-warning">

@@ -1,37 +1,37 @@
 <div class="content-wrapper">
 
-  <app-loader
+  <cmx-loader
     *ngIf="isLoadingContent"
-  ></app-loader>
+  ></cmx-loader>
   
   <ng-container *ngIf="currencyData?.currentUAHCurrency && !isLoadingContent">
-    <app-currency-card
+    <cmx-currency-card
       [currencyTitle]="'UAH/EUR'"
       [currentCurrency]="currencyData.currentEURUAHCurrency"
       [prevCurrency]="currencyData.prevEURUAHCurrency"
       [currencyDate]="currentDate"
     >
-    </app-currency-card>
-    <app-currency-card
+    </cmx-currency-card>
+    <cmx-currency-card
       [currencyTitle]="'EUR/UAH'"
       [currentCurrency]="currencyData.currentEURCurrency"
       [prevCurrency]="currencyData.prevEURCurrency"
       [currencyDate]="currentDate"
     >
-    </app-currency-card>
-    <app-currency-card
+    </cmx-currency-card>
+    <cmx-currency-card
       [currencyTitle]="'USD/UAH'"
       [currentCurrency]="currencyData.currentUAHCurrency"
       [prevCurrency]="currencyData.prevUAHCurrency"
       [currencyDate]="currentDate"
     >
-    </app-currency-card>
-    <app-currency-card
+    </cmx-currency-card>
+    <cmx-currency-card
       [currencyTitle]="'USD/UAH'"
       [currentCurrency]="currencyData.currentUSDCurrency"
       [prevCurrency]="currencyData.prevUSDCurrency"
       [currencyDate]="currentDate"
     >
-    </app-currency-card>
+    </cmx-currency-card>
   </ng-container>
 </div>

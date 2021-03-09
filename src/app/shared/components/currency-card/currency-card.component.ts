@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-currency-card',
+  selector: 'cmx-currency-card',
   templateUrl: './currency-card.component.html',
   styleUrls: ['./currency-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

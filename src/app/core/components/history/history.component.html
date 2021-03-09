@@ -1,6 +1,6 @@
 <div class="content-wrapper">
-  <app-loader *ngIf="isLoadingContent"
-  ></app-loader>
+  <cmx-loader *ngIf="isLoadingContent"
+  ></cmx-loader>
   <table mat-table [dataSource]="dataSource" *ngIf="!isLoadingContent">
 
     <ng-container matColumnDef="date">
