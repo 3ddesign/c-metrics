@@ -1,9 +1,14 @@
   .content-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     form {
+      width: 320px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
+      input {
+        color: black;
+      }
     }
   }
   
