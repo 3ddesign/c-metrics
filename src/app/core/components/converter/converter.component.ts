@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'cmx-converter',
@@ -8,12 +8,11 @@ import { ApiService } from '../../services/api.service';
 })
 export class ConverterComponent {
 
-  constructor(private apiService: ApiService) {}
+  constructor(private stateService: StateService) {}
 
   public convertedValue!: number;
 
-  onContertValue() {
-
+  onContertValue(value: string): void {
+    console.log(value);
   }
-
 }
