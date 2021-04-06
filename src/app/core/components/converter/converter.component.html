@@ -1,16 +1,16 @@
-<div class="content-wrapper"> 
+<div class="content-wrapper">
     <form>
-        <!-- <mat-button-toggle-group appearance="legacy" name="fontStyle" #group="matButtonToggleGroup">
-            <mat-button-toggle value="USD">USD</mat-button-toggle>
-            <mat-button-toggle value="EUR">EUR</mat-button-toggle>
-            <mat-button-toggle value="UAH">UAH</mat-button-toggle>
-          </mat-button-toggle-group> -->
-    <mat-form-field>
-        <mat-label>Currency amount</mat-label>
-        <input matInput type="number" color="primary" maxlength="100" #amount (keypress)="onContertValue(amount.value)">
-        <button mat-button *ngIf="convertedValue" matSuffix mat-icon-button >
-        </button>
-      </mat-form-field>
+        <mat-form-field>
+            <mat-label>Currency amount</mat-label>
+            <input
+                matInput
+                type="number"
+                color="primary"
+                maxlength="100"
+                #amount
+                (keypress)="onContertValue(amount.value)"
+            />
+            <button mat-button *ngIf="convertedValue" matSuffix mat-icon-button></button>
+        </mat-form-field>
     </form>
 </div>
-  

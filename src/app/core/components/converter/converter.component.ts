@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./converter.component.scss']
 })
 export class ConverterComponent {
-    constructor() {}
-
     public convertedValue!: number;
 
     onContertValue(value: string): void {
