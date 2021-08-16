@@ -10,19 +10,17 @@ import { MatInputModule } from '@angular/material/input';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HistoryComponent } from './components/history/history.component';
-import { ConverterComponent } from './components/converter/converter.component';
-
 
 @NgModule({
-  declarations: [DashboardComponent, HistoryComponent, ConverterComponent],
-  imports: [
-    SharedModule,
-    MatButtonModule,
-    MatInputModule,
-    MatTableModule,
-    MatSnackBarModule,
-    MatButtonToggleModule,
-    CommonModule
-  ]
+    declarations: [DashboardComponent, HistoryComponent],
+    imports: [
+        SharedModule,
+        MatButtonModule,
+        MatInputModule,
+        MatTableModule,
+        MatSnackBarModule,
+        MatButtonToggleModule,
+        CommonModule
+    ]
 })
-export class CoreModule { }
+export class CoreModule {}
