@@ -4,7 +4,6 @@ import { environment } from '../../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { share, catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 @Injectable({
     providedIn: 'root'
 })
