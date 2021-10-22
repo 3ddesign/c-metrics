@@ -1,11 +1,8 @@
 <div class="content-wrapper">
+    <cmx-loader *ngIf="isLoadingContent"></cmx-loader>
 
-  <cmx-loader
-    *ngIf="isLoadingContent"
-  ></cmx-loader>
-  
-  <ng-container *ngIf="currencyData?.currentUAHCurrency && !isLoadingContent">
-    <cmx-currency-card
+    <ng-container *ngIf="currencyData?.currentUAHCurrency && !isLoadingContent">
+        <!-- <cmx-currency-card
       [currencyTitle]="'UAH/EUR'"
       [currentCurrency]="currencyData.currentEURUAHCurrency"
       [prevCurrency]="currencyData.prevEURUAHCurrency"
@@ -18,20 +15,20 @@
       [prevCurrency]="currencyData.prevEURCurrency"
       [currencyDate]="currentDate"
     >
-    </cmx-currency-card>
-    <cmx-currency-card
-      [currencyTitle]="'USD/UAH'"
-      [currentCurrency]="currencyData.currentUAHCurrency"
-      [prevCurrency]="currencyData.prevUAHCurrency"
-      [currencyDate]="currentDate"
-    >
-    </cmx-currency-card>
-    <cmx-currency-card
-      [currencyTitle]="'USD/UAH'"
-      [currentCurrency]="currencyData.currentUSDCurrency"
-      [prevCurrency]="currencyData.prevUSDCurrency"
-      [currencyDate]="currentDate"
-    >
-    </cmx-currency-card>
-  </ng-container>
+    </cmx-currency-card> -->
+        <cmx-currency-card
+            [currencyTitle]="'USD/UAH'"
+            [currentCurrency]="currencyData.currentUAHCurrency"
+            [prevCurrency]="currencyData.prevUAHCurrency"
+            [currencyDate]="currentDate"
+        >
+        </cmx-currency-card>
+        <cmx-currency-card
+            [currencyTitle]="'USD/UAH'"
+            [currentCurrency]="currencyData.currentUSDCurrency"
+            [prevCurrency]="currencyData.prevUSDCurrency"
+            [currencyDate]="currentDate"
+        >
+        </cmx-currency-card>
+    </ng-container>
 </div>
