@@ -2,20 +2,20 @@
     <cmx-loader *ngIf="isLoadingContent"></cmx-loader>
 
     <ng-container *ngIf="currencyData?.currentUAHCurrency && !isLoadingContent">
-        <!-- <cmx-currency-card
-      [currencyTitle]="'UAH/EUR'"
-      [currentCurrency]="currencyData.currentEURUAHCurrency"
-      [prevCurrency]="currencyData.prevEURUAHCurrency"
-      [currencyDate]="currentDate"
-    >
-    </cmx-currency-card>
-    <cmx-currency-card
-      [currencyTitle]="'EUR/UAH'"
-      [currentCurrency]="currencyData.currentEURCurrency"
-      [prevCurrency]="currencyData.prevEURCurrency"
-      [currencyDate]="currentDate"
-    >
-    </cmx-currency-card> -->
+        <cmx-currency-card
+            [currencyTitle]="'UAH/EUR'"
+            [currentCurrency]="currencyData.currentEURUAHCurrency"
+            [prevCurrency]="currencyData.prevEURUAHCurrency"
+            [currencyDate]="currentDate"
+        >
+        </cmx-currency-card>
+        <cmx-currency-card
+            [currencyTitle]="'EUR/UAH'"
+            [currentCurrency]="currencyData.currentEURCurrency"
+            [prevCurrency]="currencyData.prevEURCurrency"
+            [currencyDate]="currentDate"
+        >
+        </cmx-currency-card>
         <cmx-currency-card
             [currencyTitle]="'UAH/USD'"
             [currentCurrency]="currencyData.currentUAHCurrency"
