@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
     constructor(private apiService: ApiService, private connectionService: ConnectionService) {}
 
     ngOnInit(): void {
+        console.log('init app-root');
         this.checkNetworkStatus();
     }
 
