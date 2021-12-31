@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { DateTime } from 'luxon';
 import { SubSink } from 'subsink';
 import { ApiService } from '../../services/api.service';
-import { DateTime } from 'luxon';
+
 @Component({
     selector: 'cmx-history',
     templateUrl: './history.component.html',

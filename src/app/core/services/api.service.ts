@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { Observable, of } from 'rxjs';
-import { share, catchError } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable, of } from 'rxjs';
+import { catchError, share } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 @Injectable({
     providedIn: 'root'
 })
