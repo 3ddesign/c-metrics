@@ -1,5 +1,5 @@
 .mat-toolbar {
-  background: black;
+    background: #147efb;
 }
 
 mat-toolbar {
@@ -8,15 +8,15 @@ mat-toolbar {
 }
 
 .connection-warning {
-  position: fixed;
-  bottom: 0;
-  height: 35px;
-  background: crimson;
-  width: 100%;
-  font-weight: 500;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  color: white;
-  transition: all 1s ease-out;
+    position: fixed;
+    bottom: 0;
+    height: 35px;
+    background: crimson;
+    width: 100%;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+    transition: all 1s ease-out;
 }
