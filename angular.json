@@ -103,6 +103,5 @@
                 }
             }
         }
-    },
-    "defaultProject": "c-metrics"
+    }
 }
