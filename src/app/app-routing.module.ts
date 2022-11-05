@@ -11,6 +11,10 @@ const routes: Routes = [
     {
         path: 'history',
         component: HistoryComponent
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent
     }
 ];
 
